@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
 import { Logo } from './Logo.js';
 import { Products } from './Products.js';
 
@@ -32,6 +32,19 @@ function HeroContent() {
 }
 
 export function Hero() {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/hero.png';
+    if (img.complete) {
+      setLoaded(true);
+    } else {
+      img.onload = () => setLoaded(true);
+      img.onerror = () => setLoaded(true);
+    }
+  }, []);
+
   const reduce = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -58,10 +71,31 @@ export function Hero() {
   const prodY = useTransform(p, [0.6, 0.85], [80, 0]);
   const prodScale = useTransform(p, [0.6, 0.85], [0.97, 1]);
 
+  const loadingOverlay = (
+    <AnimatePresence>
+      {!loaded && (
+        <motion.div
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+        >
+          <motion.div
+            animate={{ opacity: [0.3, 1, 0.3] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <Logo tone="light" className="text-4xl sm:text-5xl" />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
   // Reduced motion: a calm static stack instead of the scroll-driven scene.
   if (reduce) {
     return (
       <>
+        {loadingOverlay}
         <section className="relative h-[100svh] w-full overflow-hidden">
           <HeroImage />
           <HeroContent />
@@ -74,8 +108,10 @@ export function Hero() {
   }
 
   return (
-    // Tall track: how much scroll is "spent" on the pinned animation before the page continues.
-    <section ref={trackRef} className="relative h-[350vh]">
+    <>
+      {loadingOverlay}
+      {/* Tall track: how much scroll is "spent" on the pinned animation before the page continues. */}
+      <section ref={trackRef} className="relative h-[350vh]">
       <div className="bg-grid sticky top-0 h-[100svh] overflow-hidden">
         {/* Products reveal — behind the image, rising into view as it recedes & slides up. */}
         <motion.div
@@ -97,5 +133,6 @@ export function Hero() {
         </motion.div>
       </div>
     </section>
+    </>
   );
 }
