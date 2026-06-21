@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  TwentyEleven — light, minimal, premium. A clean near-white canvas, ink type, generous
+  whitespace and a single restrained gold accent. Space Grotesk for display, Inter for body.
+  Distinct from Feedu's warm cream + serif editorial look.
+*/
+:root {
+  --background: 0 0% 100%; /* white */
+  --foreground: 240 6% 10%; /* ink */
+  --card: 0 0% 100%;
+  --card-foreground: 240 6% 10%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 6% 10%;
+  --primary: 240 6% 10%; /* ink — primary buttons */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 240 5% 96%;
+  --secondary-foreground: 240 6% 10%;
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 44%;
+  --accent: 158 46% 30%; /* brand green (from the 20ELEVEN mark) */
+  --accent-foreground: 0 0% 100%;
+  --brand-navy: 218 56% 19%; /* deep navy used for "ELEVEN" */
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 152 52% 36%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 240 6% 10%;
+  --border: 240 6% 90%;
+  --input: 240 6% 90%;
+  --ring: 240 6% 10%;
+  --radius: 1rem;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip; /* clip (not hidden) so position: sticky keeps working */
+}
+
+/* ── Type ────────────────────────────────────────────────── */
+.font-display {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/*
+  Brand fonts for the logo lockup. Drop the real files into /public/fonts to make the mark
+  pixel-exact; until then the stacks fall back to Space Grotesk / monospace.
+*/
+@font-face {
+  font-family: 'Neue Machina';
+  src: url('/fonts/NeueMachina-Ultrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Disket Mono';
+  src: url('/fonts/DisketMono-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+/* ── Logo lockup ─────────────────────────────────────────── */
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.82;
+}
+.logo-top {
+  font-family: 'Neue Machina', 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1em;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'zero' 1; /* slashed zero, matching the mark */
+}
+.logo-bottom {
+  font-family: 'Disket Mono', ui-monospace, 'Space Grotesk', monospace;
+  font-weight: 500;
+  font-size: 0.345em;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em; /* offset trailing tracking so it stays centered under "20" */
+  margin-top: 0.18em;
+}
+
+/* ── Surfaces ────────────────────────────────────────────── */
+.card-elevated {
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  box-shadow: 0 1px 2px rgb(16 16 20 / 0.04), 0 12px 32px -24px rgb(16 16 20 / 0.18);
+}
+
+/* Floating-card shadow for the receding hero image + framed mockups. */
+.shadow-float {
+  box-shadow: 0 30px 70px -32px rgb(16 16 20 / 0.35), 0 8px 24px -16px rgb(16 16 20 / 0.12);
+}
+
+/* Subtle hairline grid texture for empty light areas. */
+.bg-grid {
+  background-color: hsl(var(--background));
+  background-image:
+    linear-gradient(hsl(240 6% 10% / 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(240 6% 10% / 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
