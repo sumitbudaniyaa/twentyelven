@@ -4,9 +4,16 @@ import { ArrowLeft } from 'lucide-react';
 import { Logo } from '../components/Logo.js';
 import { Footer } from '../components/Footer.js';
 import { CONTACT_EMAIL } from '../lib/site.js';
+import { useSeo } from '../lib/seo.js';
 
 export function TermsPage() {
   useEffect(() => window.scrollTo(0, 0), []);
+  useSeo({
+    title: 'Terms of Service | TwentyEleven',
+    description:
+      'The terms that govern your use of TwentyEleven products and services, including Feedu.',
+    path: '/terms',
+  });
 
   return (
     <div className="min-h-screen bg-background">

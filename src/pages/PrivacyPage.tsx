@@ -4,9 +4,16 @@ import { ArrowLeft } from 'lucide-react';
 import { Logo } from '../components/Logo.js';
 import { Footer } from '../components/Footer.js';
 import { CONTACT_EMAIL } from '../lib/site.js';
+import { useSeo } from '../lib/seo.js';
 
 export function PrivacyPage() {
   useEffect(() => window.scrollTo(0, 0), []);
+  useSeo({
+    title: 'Privacy Policy | TwentyEleven',
+    description:
+      'How TwentyEleven collects, uses and protects your personal data across its products, including Feedu.',
+    path: '/privacy',
+  });
 
   return (
     <div className="min-h-screen bg-background">

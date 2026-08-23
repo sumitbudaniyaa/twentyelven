@@ -6,14 +6,23 @@
     <meta name="theme-color" content="#ffffff" />
 
     <!-- Primary SEO -->
-    <title>TwentyEleven</title>
+    <title>TwentyEleven — SaaS Product Company India | Makers of Feedu Restaurant Software</title>
     <meta
       name="description"
-      content="TwentyEleven is a product company building a family of SaaS and tech products that solve real, everyday problems. Feedu, our restaurant operating system, is the first."
+      content="TwentyEleven is an Indian product company building a family of SaaS products that solve real, everyday problems. Feedu — the restaurant operating system with QR ordering, kitchen display and analytics — is our first product."
+    />
+    <meta
+      name="keywords"
+      content="TwentyEleven, SaaS product company, Feedu, restaurant management software, QR ordering system, restaurant POS India, product company India"
     />
     <meta name="author" content="TwentyEleven" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <link rel="canonical" href="https://twentyeleven.in/" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://twentyeleven.studio/" />
+
+    <!-- Regional targeting -->
+    <meta name="geo.region" content="IN" />
+    <meta name="geo.placename" content="India" />
 
     <!-- Icons -->
     <link rel="icon" type="image/png" href="/20eleven_logo.png" />
@@ -22,25 +31,25 @@
     <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="TwentyEleven" />
-    <meta property="og:title" content="TwentyEleven — A Product Company Building SaaS Products" />
+    <meta property="og:title" content="TwentyEleven — SaaS Product Company | Makers of Feedu Restaurant Software" />
     <meta
       property="og:description"
-      content="A product company building the next generation of software products. We're starting with Feedu — the operating system for modern restaurants."
+      content="An Indian product company building SaaS products that solve real problems — starting with Feedu, the operating system for modern restaurants. We also build custom web & mobile apps."
     />
-    <meta property="og:url" content="https://twentyeleven.in/" />
-    <meta property="og:image" content="https://twentyeleven.in/og.png" />
+    <meta property="og:url" content="https://twentyeleven.studio/" />
+    <meta property="og:image" content="https://twentyeleven.studio/og.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
 
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TwentyEleven — A Product Company Building SaaS Products" />
+    <meta name="twitter:title" content="TwentyEleven — SaaS Product Company | Makers of Feedu Restaurant Software" />
     <meta
       name="twitter:description"
-      content="A product company building the next generation of software products. Feedu, our restaurant operating system, is the first."
+      content="An Indian product company building SaaS products that solve real problems — starting with Feedu, the operating system for modern restaurants. We also build custom web & mobile apps."
     />
-    <meta name="twitter:image" content="https://twentyeleven.in/og.png" />
+    <meta name="twitter:image" content="https://twentyeleven.studio/og.png" />
 
     <!-- Fonts: Space Grotesk (display) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,32 +59,114 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Nunito:wght@400;700;800&family=Pacifico&display=swap"
     />
 
-    <!-- Structured data: the company and its products -->
+    <!-- Structured data: the company, its website and its products -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "TwentyEleven",
-        "url": "https://twentyeleven.in/",
-        "logo": "https://twentyeleven.in/og.png",
-        "description": "TwentyEleven is a product company building a family of SaaS and tech products that solve real, everyday problems.",
-        "email": "sumit.k.budaniya@gmail.com",
-        "makesOffer": {
-          "@type": "Offer",
-          "itemOffered": {
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://twentyeleven.studio/#organization",
+            "name": "TwentyEleven",
+            "url": "https://twentyeleven.studio/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://twentyeleven.studio/og.png",
+              "width": 1200,
+              "height": 630
+            },
+            "description": "TwentyEleven is a product company building a family of SaaS and tech products that solve real, everyday problems.",
+            "email": "sumit.k.budaniya@gmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://twentyeleven.studio/#website",
+            "url": "https://twentyeleven.studio/",
+            "name": "TwentyEleven",
+            "description": "A product company building SaaS and tech products. Home of Feedu, the restaurant operating system.",
+            "publisher": { "@id": "https://twentyeleven.studio/#organization" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "WebPage",
+            "@id": "https://twentyeleven.studio/#webpage",
+            "url": "https://twentyeleven.studio/",
+            "name": "TwentyEleven — SaaS Product Company India | Makers of Feedu Restaurant Software",
+            "isPartOf": { "@id": "https://twentyeleven.studio/#website" },
+            "about": { "@id": "https://twentyeleven.studio/#organization" },
+            "primaryImageOfPage": "https://twentyeleven.studio/og.png"
+          },
+          {
             "@type": "SoftwareApplication",
+            "@id": "https://feedu.in/#software",
             "name": "Feedu",
+            "url": "https://feedu.in/",
             "applicationCategory": "BusinessApplication",
             "applicationSubCategory": "Restaurant Management Software",
-            "url": "https://feedu.in/",
-            "description": "The operating system for modern restaurants."
+            "operatingSystem": "Web",
+            "description": "The operating system for modern restaurants: QR ordering, kitchen display, waiter floor, owner dashboard, payments and loyalty, and multi-branch analytics.",
+            "featureList": [
+              "QR code table ordering",
+              "Kitchen display system",
+              "Waiter floor management",
+              "Owner analytics dashboard",
+              "Integrated payments & loyalty",
+              "Multi-branch reporting"
+            ],
+            "image": "https://twentyeleven.studio/feedu_landing.png",
+            "publisher": { "@id": "https://twentyeleven.studio/#organization" },
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "INR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://feedu.in/"
+            }
           }
-        }
+        ]
       }
     </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- Crawlable fallback content: this site is client-rendered, so search
+         engines and browsers without JavaScript still get the key text,
+         headings and links to follow. Keep in sync with the React app. -->
+    <noscript>
+      <div style="max-width: 720px; margin: 40px auto; font-family: sans-serif; padding: 0 20px">
+        <h1>TwentyEleven — A SaaS Product Company Building Everyday Software</h1>
+        <p>
+          TwentyEleven is an Indian product company building a family of SaaS and tech products that
+          solve real, everyday problems.
+        </p>
+        <h2>Our Products</h2>
+        <h3>
+          <a href="https://feedu.in/">Feedu — the operating system for modern restaurants</a>
+        </h3>
+        <p>
+          Feedu replaces a dozen disconnected restaurant tools with one calm, connected system:
+          QR code ordering at the table, a real-time kitchen display, a waiter floor view, an owner
+          dashboard with live revenue and top-dish analytics, integrated payments and loyalty, and
+          multi-branch reporting. Built for dine-in restaurants, cafés, cloud kitchens, food courts
+          and multi-branch chains across India.
+        </p>
+        <h2>Our Services</h2>
+        <p>
+          We also design and develop custom software for clients: web development (SaaS platforms,
+          e-commerce, dashboards and APIs) and mobile app development for iOS and Android.
+        </p>
+        <ul>
+          <li><a href="/products/feedu">About Feedu by TwentyEleven</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+        <p>Contact: sumit.k.budaniya@gmail.com</p>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

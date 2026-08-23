@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { getProduct } from '../data/products.js';
 import { fadeUp, inView, stagger } from '../lib/anim.js';
+import { useSeo } from '../lib/seo.js';
 import { BrowserFrame } from '../components/BrowserFrame.js';
 import { PhoneFrame } from '../components/PhoneFrame.js';
 import { Logo } from '../components/Logo.js';
@@ -56,6 +57,15 @@ const FEATURES = [
 export function ProductPage() {
   const { slug } = useParams();
   const product = slug ? getProduct(slug) : undefined;
+
+  useSeo({
+    title: product
+      ? `${product.name} by TwentyEleven — ${product.tagline}`
+      : 'TwentyEleven Products',
+    description: product?.summary ?? 'Products built by TwentyEleven.',
+    path: `/products/${slug ?? ''}`,
+    image: product?.shot,
+  });
 
   // Scroll to top on mount so navigating from a card lands at the page top.
   useEffect(() => window.scrollTo(0, 0), []);
