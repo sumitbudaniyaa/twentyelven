@@ -6,7 +6,7 @@ import { useSeo } from '../lib/seo.js';
 
 export function Home() {
   useSeo({
-    title: 'TwentyEleven — SaaS Product Company India | Makers of Feedu Restaurant Software',
+    title: 'twentyeleven',
     description:
       'TwentyEleven is an Indian product company building SaaS products that solve real problems. Feedu — the restaurant operating system — is our first. We also build custom web & mobile apps.',
     path: '/',

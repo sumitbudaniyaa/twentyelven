@@ -50,6 +50,10 @@ module.exports = {
           DEFAULT: 'hsl(var(--warning))',
           foreground: 'hsl(var(--warning-foreground))',
         },
+        info: {
+          DEFAULT: 'hsl(var(--info))',
+          foreground: 'hsl(var(--info-foreground))',
+        },
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
@@ -69,6 +73,7 @@ module.exports = {
         // Distinct from Feedu: a grotesk for display, Inter for body.
         display: ['Space Grotesk', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        kanturmuy: ['"Kantumruy Pro"', 'Space Grotesk', 'sans-serif'],
       },
       keyframes: {
         'fade-in': {
